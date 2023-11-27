@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: provide-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: provide-service
+        file-extension: yml
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+        username: nacos
+        password: nacos
+        group: dev
+        shared-configs[0]:
+          data-id: mysql
+          refresh: true
+          group: dev
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        enabled: true
+        group: dev
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68

@@ -1,0 +1,22 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: consumer-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        enabled: true
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+        group: dev
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: consumer-service
+        file-extension: yml
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+        username: nacos
+        password: nacos
+        group: dev
