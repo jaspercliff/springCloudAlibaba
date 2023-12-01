@@ -1,0 +1,51 @@
+server:
+  port: 8083
+spring:
+  data:
+    redis:
+      host: 122.51.54.43
+      port: 999
+      password: passwd
+  cloud:
+    gateway:
+      routes:
+        - id: my
+          uri: https://baidu.com
+          predicates:
+            - Path=/bd
+        - id: jd
+          uri: https://jd.com
+          predicates:
+            - Path=/jd
+        - id: all
+          uri: http://localhost:8081
+          predicates:
+            - Path=/provider/{bean}/{id}
+          filters:
+            - AddHeader=new-color, yellow
+#            - One=oneFilter,one
+#            - Two=twoFilter,two
+
+#              =======熔断器
+#        - id: all
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - name: Circuit Breaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fl
+
+#            =========限流
+#        - id: all
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - name: RequestRateLimiter
+#              args:
+#                key-resolver: "#{@userKeyResolver}"
+#                redis-rate-limiter.replenishRate: 1
+#                redis-rate-limiter.burstCapacity: 1
+#                redis-rate-limiter.requestedTokens: 1

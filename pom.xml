@@ -13,6 +13,11 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>springCloudAlibaba</name>
     <description>springCloudAlibaba</description>
+    <modules>
+        <module>provider01</module>
+        <module>consumer01</module>
+        <module>gateway</module>
+    </modules>
     <packaging>pom</packaging>
     <properties>
         <java.version>21</java.version>

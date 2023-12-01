@@ -22,3 +22,7 @@ spring:
         enabled: true
         group: dev
         namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+server:
+  servlet:
+    context-path: /provider
+  port: 8081
