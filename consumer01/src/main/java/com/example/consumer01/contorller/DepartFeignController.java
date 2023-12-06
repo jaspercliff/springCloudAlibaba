@@ -90,6 +90,20 @@ public class DepartFeignController {
         return departs;
     }
 
+    @GetMapping("/param")
+    @SentinelResource(value = "paramHandle",blockHandler = "paramHandleBlock")
+    public String getParam(Integer id,String name){
+        return "params "+id+":"+name;
+    }
 
+
+    //    public Depart handleGet(Integer id,Throwable e){
+//        Depart depart = new Depart();
+//        depart.setId(2).setName("sentinel degrade fallback !!");
+//        return depart;
+//    }
+    public String paramHandleBlock(Integer id,String name, BlockException exception){
+        return "sentinel fallback"+id+":"+name;
+    }
 
 }

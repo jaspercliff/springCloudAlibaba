@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class SentinelFusingConfig implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        initDegradeRule();
+        initDegradeRule();
     }
 
     private static void initDegradeRule() {

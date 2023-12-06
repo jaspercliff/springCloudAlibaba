@@ -11,7 +11,7 @@ public class DepartRequestOriginParser implements RequestOriginParser {
     public String parseOrigin(HttpServletRequest request) {
         String source = request.getParameter("source");
         if (!StringUtils.hasText(source)){
-            source = "sa";
+            source = "default";
         }
         return source;
     }
