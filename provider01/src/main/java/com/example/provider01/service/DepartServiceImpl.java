@@ -1,10 +1,13 @@
 package com.example.provider01.service;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.provider01.Bean.Depart;
 import com.example.provider01.repository.DepartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -41,7 +44,16 @@ public class DepartServiceImpl implements DepartService{
     }
 
     @Override
+    @SentinelResource(value = "departListHandle",blockHandler = "handleListBlock")
     public List<Depart> getList() {
         return departRepository.findAll();
+    }
+
+    public List<Depart> handleListBlock(BlockException e) {
+        ArrayList<Depart> departs = new ArrayList<>();
+        Depart depart = new Depart();
+        depart.setId(2).setName("depart list sentinel flow fallback !!");
+        departs.add(depart);
+        return departs;
     }
 }

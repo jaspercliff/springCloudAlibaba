@@ -49,9 +49,13 @@ public class DepartController {
         return departService.getById(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     private List<Depart> list(){
         return departService.getList();
     }
 
+    @GetMapping("/list")
+    private List<Depart> departs(){
+        return departService.getList();
+    }
 }

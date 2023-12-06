@@ -38,3 +38,11 @@ spring:
       httpclient:
         hc5:
           enabled: true
+    sentinel:
+      transport:
+        dashboard: localhost:8888
+        port: 8719     # 8848修改了限流规则，push给这个http server httpserver将规则注册到sentinel
+      eager: true #启动将服务加到dashboard
+feign:
+  sentinel:
+    enabled: true
