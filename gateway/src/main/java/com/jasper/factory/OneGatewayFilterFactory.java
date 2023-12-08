@@ -1,14 +1,12 @@
 package com.jasper.factory;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.math.ec.rfc8032.Ed25519;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractNameValueGatewayFilterFactory;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-@Component
+//@Component
 @Slf4j
 public class OneGatewayFilterFactory extends AbstractNameValueGatewayFilterFactory {
     @Override

@@ -1,18 +1,6 @@
 package com.jasper.config;
 
-import org.springframework.cloud.gateway.filter.ratelimit.KeyResolver;
-import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.builder.GatewayFilterSpec;
-import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.cloud.gateway.route.builder.UriSpec;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import reactor.core.publisher.Mono;
-
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.Objects;
 
 /**
  * Configuration class for the Gateway.
@@ -24,10 +12,10 @@ public class GatewayConfig {
      * 配置式优先级高于api式
      */
 
-    @Bean
-    KeyResolver userKeyResolver() {
-        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getQueryParams().getFirst("user")));
-    }
+//    @Bean
+//    KeyResolver userKeyResolver() {
+//        return exchange -> Mono.just(Objects.requireNonNull(exchange.getRequest().getQueryParams().getFirst("user")));
+//    }
 
 
 //    @Bean

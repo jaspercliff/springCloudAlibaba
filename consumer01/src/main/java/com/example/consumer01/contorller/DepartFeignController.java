@@ -1,7 +1,5 @@
 package com.example.consumer01.contorller;
 
-import com.alibaba.csp.sentinel.Entry;
-import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.consumer01.bean.Depart;
@@ -89,6 +87,8 @@ public class DepartFeignController {
         departs.add(depart);
         return departs;
     }
+
+
 
     @GetMapping("/param")
     @SentinelResource(value = "paramHandle",blockHandler = "paramHandleBlock")

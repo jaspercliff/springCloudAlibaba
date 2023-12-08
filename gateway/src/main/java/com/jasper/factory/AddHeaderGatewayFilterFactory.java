@@ -4,11 +4,10 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractNameValueGatewayFilterFactory;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-@Component
+//@Component
 public class AddHeaderGatewayFilterFactory extends AbstractNameValueGatewayFilterFactory {
     @Override
     public GatewayFilter apply(NameValueConfig config) {

@@ -1,8 +1,6 @@
 package com.example.consumer01.interfaces;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.example.consumer01.bean.Depart;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;

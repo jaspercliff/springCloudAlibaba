@@ -4,14 +4,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-@Component
+//@Component
 public class AuthRoutePredicateFactory extends AbstractRoutePredicateFactory<AuthRoutePredicateFactory.Config> {
 
     public AuthRoutePredicateFactory() {

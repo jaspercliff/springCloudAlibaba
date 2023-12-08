@@ -7,6 +7,17 @@ spring:
       port: 999
       password: passwd
   cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8888
+        port: 8719     # 8848修改了限流规则，push给这个http server httpserver将规则注册到sentinel
+      eager: true #启动将服务加到dashboard
+      filter:
+        enabled: false
+#      scg:
+#        fallback:
+#          redirect: https://baidu.com
+#          mode: redirect
     gateway:
       routes:
         - id: my
@@ -17,12 +28,17 @@ spring:
           uri: https://jd.com
           predicates:
             - Path=/jd
-        - id: all
-          uri: http://localhost:8081
+        - id: get
+          uri: http://localhost:8082
           predicates:
-            - Path=/provider/{bean}/{id}
-          filters:
-            - AddHeader=new-color, yellow
+            - Path=/consumer/depart/**
+        - id: list
+          uri: http://localhost:8082
+          predicates:
+            - Path=/consumer/depart/
+
+#          filters:
+#            - AddHeader=new-color, yellow
 #            - One=oneFilter,one
 #            - Two=twoFilter,two
 

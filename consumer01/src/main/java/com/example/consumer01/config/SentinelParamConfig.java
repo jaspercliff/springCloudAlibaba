@@ -6,10 +6,9 @@ import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRuleManager;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-@Component
+//@Component
 public class SentinelParamConfig implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
