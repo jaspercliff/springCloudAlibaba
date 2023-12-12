@@ -43,6 +43,52 @@ spring:
         dashboard: localhost:8888
         port: 8719     # 8848修改了限流规则，push给这个http server httpserver将规则注册到sentinel
       eager: true #启动将服务加到dashboard
+      datasource:
+        flows:
+          nacos:
+            server-addr: localhost:8848
+            rule-type: flow
+            data-id: ${spring.application.name}-flow-rules
+            data-type: json
+            group-id: SENTINEL_GROUP
+            username: nacos
+            password: nacos
+        degrades:
+          nacos:
+            server-addr: localhost:8848
+            rule-type: degrade
+            data-id: ${spring.application.name}-degrade-rules
+            data-type: json
+            group-id: SENTINEL_GROUP
+            username: nacos
+            password: nacos
+        authorities:
+          nacos:
+            server-addr: localhost:8848
+            rule-type: authority
+            data-id: ${spring.application.name}-authority-rules
+            data-type: json
+            group-id: SENTINEL_GROUP
+            username: nacos
+            password: nacos
+        systems:
+          nacos:
+            server-addr: localhost:8848
+            rule-type: system
+            data-id: ${spring.application.name}-system-rules
+            data-type: json
+            group-id: SENTINEL_GROUP
+            username: nacos
+            password: nacos
+        params:
+          nacos:
+            server-addr: localhost:8848
+            rule-type: param_flow
+            data-id: ${spring.application.name}-param-rules
+            data-type: json
+            group-id: SENTINEL_GROUP
+            username: nacos
+            password: nacos
 feign:
   sentinel:
     enabled: true
