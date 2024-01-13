@@ -62,7 +62,7 @@ public class DefaultLoginAuthenticationFilter implements LoginAuthenticationFilt
     private List<String> authFilterExcludeUrlSuffixes;
 
     /**
-     * Authentication using AuthService interface.
+     * Authentication using AuthService interfaces.
      */
     private final AuthService<HttpServletRequest> authService;
 

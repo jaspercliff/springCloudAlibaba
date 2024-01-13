@@ -4,6 +4,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.example.consumer01.bean.Depart;
 import com.example.consumer01.interfaces.DepartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,16 +15,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/depart")
+@RequiredArgsConstructor
 public class DepartFeignController {
 
     private final DepartService service;
 
     @Value("${server.port}")
     private String port;
-    @Autowired
-    public DepartFeignController(@Qualifier("com.example.consumer01.interfaces.DepartService") DepartService service) {
-        this.service = service;
-    }
+//    @Autowired
+//    public DepartFeignController(@Qualifier("com.example.consumer01.interfaces.DepartService") DepartService service) {
+//        this.service = service;
+//    }
 
     @GetMapping("/port")
     public String getPort(){

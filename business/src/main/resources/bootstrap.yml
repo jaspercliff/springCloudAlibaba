@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: business-service
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: business-service
+        file-extension: yml
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+        username: nacos
+        password: nacos
+        group: dev
+        shared-configs[0]:
+          data-id: mysql
+          refresh: true
+          group: dev
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        enabled: true
+        group: dev
+        namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+    sentinel:
+      transport:
+        dashboard: localhost:8888
+        port: 8719     # 8848修改了限流规则，push给这个http server httpserver将规则注册到sentinel
+      eager: true #启动将服务加到dashboard
+      web-context-unify: false # 默认（true)会收敛所有url入口
+server:
+  port: 8087

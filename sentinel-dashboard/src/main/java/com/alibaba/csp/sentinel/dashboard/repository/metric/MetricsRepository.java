@@ -18,7 +18,7 @@ package com.alibaba.csp.sentinel.dashboard.repository.metric;
 import java.util.List;
 
 /**
- * Repository interface for aggregated metrics data.
+ * Repository interfaces for aggregated metrics data.
  *
  * @param <T> type of metrics
  * @author Eric Zhao
