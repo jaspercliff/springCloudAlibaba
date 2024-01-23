@@ -1,3 +1,5 @@
+server:
+  port: 8084
 spring:
   application:
     name: stock-service
@@ -28,5 +30,21 @@ spring:
         port: 8719     # 8848修改了限流规则，push给这个http server httpserver将规则注册到sentinel
       eager: true #启动将服务加到dashboard
       web-context-unify: false # 默认（true)会收敛所有url入口
-server:
-  port: 8084
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: d53d645a-0e99-44b7-9d23-fcd5fae8cf68
+      group: dev
+      application: seata-server
+      username: nacos
+      password: nacos
+      context-path: /nacos
+  #      设置分组名称
+  tx-service-group: seata-group
+  service:
+    vgroup-mapping:
+      #      当前分组的集群名称
+      seata-group: seata-group
+  enabled: true
